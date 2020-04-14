@@ -1,17 +1,23 @@
 import java.util.*;
 
 public class WordFrequencyGame {
+
+	private static final String SPACE_FORMAT = "\\s+";
+	private static final String NEW_LINE_DELIMITER = "\n";
+	private static final String SPACE_DELIMITER = " ";
+	private static final String CALCULATE_ERROR = "Calculate Error";
+
 	public String getResult(String inputStr) {
 
 
-		if (inputStr.split("\\s+").length == 1) {
+		if (inputStr.split(SPACE_FORMAT).length == 1) {
 			return inputStr + " 1";
 		} else {
 
 			try {
 
 				//split the input string with 1 to n pieces of spaces
-				String[] arr = inputStr.split("\\s+");
+				String[] arr = inputStr.split(SPACE_FORMAT);
 
 				List<Input> inputList = new ArrayList<>();
 				for (String s : arr) {
@@ -19,7 +25,8 @@ public class WordFrequencyGame {
 					inputList.add(input);
 				}
 
-				//get the map for the next step of sizing the same word
+				//get the map for the next step of siz
+				// ing the same word
 				Map<String, List<Input>> map = getListMap(inputList);
 
 				List<Input> list = new ArrayList<>();
@@ -31,14 +38,14 @@ public class WordFrequencyGame {
 
 				inputList.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
 
-				StringJoiner joiner = new StringJoiner("\n");
+				StringJoiner joiner = new StringJoiner(NEW_LINE_DELIMITER);
 				for (Input w : inputList) {
-					String s = w.getValue() + " " + w.getWordCount();
+					String s = w.getValue() + SPACE_DELIMITER + w.getWordCount();
 					joiner.add(s);
 				}
 				return joiner.toString();
 			} catch (Exception e) {
-				return "Calculate Error";
+				return CALCULATE_ERROR;
 			}
 		}
 	}
