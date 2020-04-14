@@ -47,7 +47,7 @@ public class WordFrequencyGameTest {
     }
 
     private void should_return_true_if_output_result_is_match_with_expected_result(String sentence, String expectResult) {
-        WordFrequencyGame game = new WordFrequencyGame();
-        assertEquals(game.getResult(sentence), expectResult);
+        WordFrequencyGame wordFrequencyGame = new WordFrequencyGame();
+        assertEquals(wordFrequencyGame.getResult(sentence), expectResult);
     }
 }
