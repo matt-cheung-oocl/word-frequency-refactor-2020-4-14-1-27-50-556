@@ -9,12 +9,12 @@ public class WordFrequencyGame {
 
 	public String getResult(String sentence) {
 		try {
-				List<WordInfo> wordInfoList = calculateWordFrequency(sentence);
-				StringJoiner joiner = generateWordFrequencyOutput(wordInfoList);
-				return joiner.toString();
-			} catch (Exception e) {
-				return CALCULATE_ERROR;
-			}
+			List<WordInfo> wordInfoList = calculateWordFrequency(sentence);
+			StringJoiner joiner = generateWordFrequencyOutput(wordInfoList);
+			return joiner.toString();
+		} catch (Exception e) {
+			return CALCULATE_ERROR;
+		}
 	}
 
 	private StringJoiner generateWordFrequencyOutput(List<WordInfo> wordInfoList) {
