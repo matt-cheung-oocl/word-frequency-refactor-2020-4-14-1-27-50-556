@@ -5,58 +5,49 @@ import static org.junit.Assert.assertEquals;
 public class WordFrequencyGameTest {
 
     @Test
-    public void should_get_the_1_when_input_the() throws Exception {
-        //Given
-        String inputStr = "the";
+    public void should_get_the_1_when_input_the() {
+        String inputSentence = "the";
         String expectResult = "the 1";
-        validate_Input_words_process_to_expected_word(inputStr, expectResult);
+        should_return_true_if_output_result_is_match_with_expected_result(inputSentence, expectResult);
     }
 
     @Test
-    public void should_process_two_words() throws Exception {
-        //Given
-        String inputStr = "the is";
+    public void should_process_two_words() {
+        String inputSentence = "the is";
         String expectResult = "the 1\nis 1";
-        validate_Input_words_process_to_expected_word(inputStr, expectResult);
+        should_return_true_if_output_result_is_match_with_expected_result(inputSentence, expectResult);
     }
 
     @Test
-    public void should_process_two_words_with_special_spaces() throws Exception {
-        //Given
-        String inputStr = "the      is";
+    public void should_process_two_words_with_special_spaces() {
+        String inputSentence = "the      is";
         String expectResult = "the 1\nis 1";
-        validate_Input_words_process_to_expected_word(inputStr, expectResult);
+        should_return_true_if_output_result_is_match_with_expected_result(inputSentence, expectResult);
     }
 
     @Test
-    public void should_process_two_words_with_special_enter() throws Exception {
-        //Given
-        String inputStr = "the   \n   is";
+    public void should_process_two_words_with_special_enter() {
+        String inputSentence = "the   \n   is";
         String expectResult = "the 1\nis 1";
-        validate_Input_words_process_to_expected_word(inputStr, expectResult);
+        should_return_true_if_output_result_is_match_with_expected_result(inputSentence, expectResult);
     }
 
     @Test
-    public void should_pracess_two_same_words_with_sorted() throws Exception {
-        //Given
-        String inputStr = "the the is";
+    public void should_process_two_same_words_with_sorted() {
+        String inputSentence = "the the is";
         String expectResult = "the 2\nis 1";
-        validate_Input_words_process_to_expected_word(inputStr, expectResult);
+        should_return_true_if_output_result_is_match_with_expected_result(inputSentence, expectResult);
     }
 
     @Test
-    public void should_process_sorted_with_count_descending() throws Exception {
-        //Given
-        String inputStr = "the is is";
+    public void should_process_sorted_with_count_descending() {
+        String inputSentence = "the is is";
         String expectResult = "is 2\nthe 1";
-        validate_Input_words_process_to_expected_word(inputStr, expectResult);
+        should_return_true_if_output_result_is_match_with_expected_result(inputSentence, expectResult);
     }
 
-    private void validate_Input_words_process_to_expected_word(String inputStr, String expectResult) {
+    private void should_return_true_if_output_result_is_match_with_expected_result(String sentence, String expectResult) {
         WordFrequencyGame game = new WordFrequencyGame();
-        //When
-        String result = game.getResult(inputStr);
-        //Then
-        assertEquals(result, expectResult);
+        assertEquals(game.getResult(sentence), expectResult);
     }
 }

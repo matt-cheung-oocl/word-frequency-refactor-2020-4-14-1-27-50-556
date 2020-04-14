@@ -7,11 +7,11 @@ public class WordInfo {
         this.wordCount = wordCount;
     }
 
-    public String getWord() {
+    String getWord() {
         return this.word;
     }
 
-    public int getWordCount() {
+    int getWordCount() {
         return this.wordCount;
     }
 }

@@ -5,16 +5,11 @@ public class WordFrequencyGame {
 	private static final String SPACE_FORMAT = "\\s+";
 	private static final String NEW_LINE_DELIMITER = "\n";
 	private static final String SPACE_DELIMITER = " ";
-	private static final String CALCULATE_ERROR = "Calculate Error";
 
 	public String getResult(String sentence) {
-		try {
 			List<WordInfo> wordInfoList = calculateWordFrequency(sentence);
 			StringJoiner joiner = generateWordFrequencyOutput(wordInfoList);
 			return joiner.toString();
-		} catch (Exception e) {
-			return CALCULATE_ERROR;
-		}
 	}
 
 	private StringJoiner generateWordFrequencyOutput(List<WordInfo> wordInfoList) {
@@ -33,7 +28,11 @@ public class WordFrequencyGame {
 			int wordCount = Collections.frequency(words, word);
 			wordInfoList.add(new WordInfo(word, wordCount));
 		}
-		wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
+		sortWordByFrequency(wordInfoList);
 		return wordInfoList;
+	}
+
+	private void sortWordByFrequency(List<WordInfo> wordInfoList) {
+		wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
 	}
 }
